@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="유저의 불편을 먼저 발견하고, 몰입을 방해하지 않는 시스템을 설계하는 임상진의 포트폴리오입니다.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#3f9fd3">
+  <title>임상진 | 시스템 기획 포트폴리오</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233f9fd3'/%3E%3Cpath d='M8 9h16v4H13v3h9v4h-9v3h11v4H8z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    :root {
+      --ink: #162736;
+      --muted: #607180;
+      --sky: #3f9fd3;
+      --sky-deep: #237eae;
+      --sky-soft: #eaf6fc;
+      --sky-pale: #f5fbfe;
+      --line: #c8e4f2;
+      --white: #ffffff;
+      --max: 1120px;
+      color-scheme: light;
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      font-synthesis: none;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, rgba(63,159,211,.08) 1px, transparent 1px) 0 0 / 72px 72px,
+        var(--white);
+      font-size: 16px;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
+    ::selection { background: #bfe6f8; color: var(--ink); }
+
+    .skip {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: var(--white);
+      background: var(--ink);
+      border-radius: 8px;
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: translateY(0); }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(35, 126, 174, .18);
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      width: min(calc(100% - 40px), var(--max));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -.02em;
+    }
+    .brand-mark {
+      width: 30px;
+      height: 30px;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--sky);
+      border-radius: 9px 9px 2px 9px;
+      font-size: 13px;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 14px;
+      font-weight: 700;
+    }
+    .nav-links a { text-decoration: none; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--sky-deep); }
+
+    main { overflow: hidden; }
+    .section {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+      padding: 104px 0;
+    }
+    .hero {
+      min-height: calc(100vh - 68px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      align-items: center;
+      gap: clamp(48px, 8vw, 112px);
+      padding-top: 72px;
+      padding-bottom: 72px;
+    }
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 18px;
+      color: var(--sky-deep);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      background: var(--sky);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 26px;
+      font-size: clamp(44px, 7vw, 82px);
+      line-height: 1.08;
+      letter-spacing: -.055em;
+    }
+    h1 span { color: var(--sky); }
+    .hero-copy {
+      max-width: 680px;
+      margin-bottom: 34px;
+      color: #354b5c;
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.65;
+    }
+    .hero-copy strong { color: var(--ink); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 20px;
+      border: 1px solid var(--ink);
+      border-radius: 10px;
+      color: var(--white);
+      background: var(--ink);
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+    .button.secondary { color: var(--ink); background: var(--white); }
+    .button:hover, .button:focus-visible {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(22, 39, 54, .14);
+    }
+    .portrait-wrap {
+      position: relative;
+      width: min(100%, 320px);
+      justify-self: end;
+    }
+    .portrait-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      z-index: -1;
+      border: 2px solid var(--sky);
+      border-radius: 30px 30px 8px 30px;
+    }
+    .portrait-wrap::after {
+      content: "SYSTEM / UX";
+      position: absolute;
+      right: -28px;
+      bottom: 22px;
+      padding: 8px 12px;
+      color: var(--white);
+      background: var(--sky-deep);
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .1em;
+    }
+    .portrait {
+      display: block;
+      width: 100%;
+      height: 400px;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 30px 30px 8px 30px;
+      filter: saturate(.92) contrast(1.02);
+    }
+
+    .band { background: var(--sky-pale); border-block: 1px solid var(--line); }
+    .section-head {
+      display: grid;
+      grid-template-columns: 190px minmax(0, 1fr);
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+    .section-kicker {
+      margin: 4px 0 0;
+      color: var(--sky-deep);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: .12em;
+    }
+    h2 {
+      margin-bottom: 0;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+      letter-spacing: -.04em;
+    }
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+    }
+    .profile-statement {
+      padding: 34px;
+      background: var(--white);
+      border-left: 5px solid var(--sky);
+      border-radius: 0 18px 18px 0;
+      box-shadow: 0 16px 44px rgba(35, 126, 174, .08);
+      font-size: 19px;
+    }
+    .profile-statement strong { color: var(--sky-deep); }
+    .principles { display: grid; gap: 12px; }
+    .principle {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 20px;
+      background: rgba(255,255,255,.74);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+    }
+    .principle b { color: var(--sky-deep); font-size: 13px; letter-spacing: .08em; }
+    .principle span { font-weight: 700; }
+
+    .projects { display: grid; gap: 18px; }
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .archive-card {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 34px;
+      border: 1px solid #d8eaf3;
+      border-radius: 22px;
+      background: var(--white);
+      text-decoration: none;
+      box-shadow: 0 16px 44px rgba(35, 126, 174, .07);
+      transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .archive-card:hover, .archive-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: var(--sky);
+      box-shadow: 0 22px 52px rgba(22, 39, 54, .11);
+    }
+    .archive-card .archive-index {
+      color: var(--sky);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .12em;
+    }
+    .archive-card h3 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+      letter-spacing: -.04em;
+    }
+    .archive-card p { max-width: 430px; margin-bottom: 0; color: var(--muted); }
+    .archive-link {
+      display: inline-flex;
+      align-items: center;
+      align-self: flex-start;
+      margin-top: 32px;
+      padding-top: 12px;
+      border-top: 2px solid var(--sky);
+      color: var(--sky-deep);
+      font-size: 14px;
+      font-weight: 900;
+    }
+    .project {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1.35fr) minmax(220px, .65fr);
+      gap: 28px;
+      align-items: start;
+      padding: 30px;
+      background: var(--white);
+      border: 1px solid #d8eaf3;
+      border-radius: 18px;
+      transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease;
+    }
+    .project:hover {
+      transform: translateY(-3px);
+      border-color: var(--sky);
+      box-shadow: 0 18px 46px rgba(22, 39, 54, .09);
+    }
+    .project-no {
+      color: var(--sky);
+      font-size: 26px;
+      font-weight: 900;
+      line-height: 1;
+    }
+    .project h3 { margin-bottom: 8px; font-size: 23px; letter-spacing: -.025em; }
+    .project-role { margin-bottom: 10px; color: var(--sky-deep); font-weight: 800; }
+    .project-desc { margin-bottom: 0; color: var(--muted); }
+    .project-meta {
+      display: grid;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .project-meta strong { color: var(--ink); }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .capability {
+      min-height: 220px;
+      padding: 28px;
+      border-top: 4px solid var(--sky);
+      background: var(--white);
+      box-shadow: 0 14px 38px rgba(22, 39, 54, .06);
+    }
+    .capability h3 { margin-bottom: 14px; font-size: 21px; }
+    .capability p { margin-bottom: 0; color: var(--muted); }
+    .tool-line {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      color: #3e5566;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      counter-reset: story;
+    }
+    .story-card {
+      position: relative;
+      padding: 28px;
+      background: var(--sky-pale);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      counter-increment: story;
+    }
+    .story-card::before {
+      content: "0" counter(story);
+      display: block;
+      margin-bottom: 24px;
+      color: var(--sky);
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: .1em;
+    }
+    .story-card h3 { margin-bottom: 12px; font-size: 20px; }
+    .story-card p { margin-bottom: 0; color: var(--muted); }
+
+    .contact {
+      padding: 72px 0 34px;
+      color: var(--white);
+      background: var(--ink);
+    }
+    .contact-inner {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+    .contact-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: end;
+      padding-bottom: 56px;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .contact h2 { max-width: 720px; margin-bottom: 14px; }
+    .contact p { margin-bottom: 0; color: #c9d6df; }
+    .contact .button { color: var(--ink); background: var(--white); border-color: var(--white); }
+    .footer-meta {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 24px;
+      color: #9fb2bf;
+      font-size: 13px;
+    }
+
+    :focus-visible { outline: 3px solid #9bd8f5; outline-offset: 3px; }
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr 240px; gap: 42px; }
+      .section-head { grid-template-columns: 1fr; gap: 10px; }
+      .profile-grid { grid-template-columns: 1fr; }
+      .project { grid-template-columns: 54px 1fr; }
+      .project-meta { grid-column: 2; }
+      .capability-grid, .story-grid { grid-template-columns: 1fr; }
+      .archive-grid { grid-template-columns: 1fr; }
+      .capability { min-height: 0; }
+    }
+    @media (max-width: 640px) {
+      body { background-size: 48px 48px; }
+      .nav { width: min(calc(100% - 28px), var(--max)); min-height: 60px; }
+      .nav-links li:not(:last-child) { display: none; }
+      .section { width: min(calc(100% - 28px), var(--max)); padding: 74px 0; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+      .hero-content { order: 2; }
+      .portrait-wrap { order: 1; width: 190px; justify-self: start; margin-left: 8px; }
+      .portrait { height: 238px; }
+      .portrait-wrap::after { right: -46px; }
+      h1 { font-size: clamp(42px, 14vw, 62px); }
+      .hero-copy { font-size: 18px; }
+      .profile-statement, .project, .capability, .story-card { padding: 22px; }
+      .project { grid-template-columns: 1fr; gap: 14px; }
+      .project-meta { grid-column: 1; padding-top: 12px; border-top: 1px solid var(--line); }
+      .contact-row { grid-template-columns: 1fr; align-items: start; }
+      .footer-meta { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+  <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">LSJ</span><span>임상진</span></a>
+      <ul class="nav-links">
+        <li><a href="#profile">소개</a></li>
+        <li><a href="#games">게임 이력</a></li>
+        <li><a href="#projects">프로젝트 경험</a></li>
+        <li><a href="#capabilities">역량</a></li>
+        <li><a href="#contact">연락</a></li>
+      </ul>
+      <div class="quick-menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="quick-panel" aria-label="상세 페이지 메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+        <aside class="quick-panel" id="quick-panel" aria-label="상세 페이지 바로가기">
+          <p class="quick-panel-label">DETAIL ARCHIVE</p>
+          <a href="games.html"><b>게임 이력</b><span>63개 게임의 장르와 플레이 기록</span></a>
+          <a href="projects.html"><b>프로젝트 경험</b><span>프로젝트별 역할과 기여 내용</span></a>
+          <div class="quick-projects"><p class="quick-panel-label">PROJECTS</p><div class="quick-project-list" data-quick-project-list></div></div>
+        </aside>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="section hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">System Designer</p>
+        <h1 id="hero-title">불편은 줄이고,<br><span>몰입은 이어지게.</span></h1>
+        <p class="hero-copy"><strong>유저의 입장에서 먼저 생각하는 시스템 기획자 임상진입니다.</strong> 플레이 흐름을 검토하고, 팀과 조율하며, 이해하기 쉬운 시스템을 설계합니다.</p>
+        <div class="actions">
+          <a class="button" href="#archive">경험 기록 보기</a>
+          <a class="button secondary" href="resume.pdf" download>이력서 PDF <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="assets/profile.png" alt="시스템 기획자 임상진 프로필 사진" width="1104" height="1425">
+      </div>
+    </section>
+
+    <div class="band">
+      <section class="section" id="profile" aria-labelledby="profile-title">
+        <div class="section-head">
+          <p class="section-kicker">01 / PROFILE</p>
+          <h2 id="profile-title">문제를 먼저 발견하고<br>팀이 풀 수 있게 정리합니다.</h2>
+        </div>
+        <div class="profile-grid">
+          <p class="profile-statement"><strong>유저 입장에서 생길 불편함을 미연에 방지하는 시스템 기획자</strong>입니다. 플레이어가 게임에 몰입할 수 있을지 끊임없이 검토하며, 팀원과 좋은 분위기에서 협업할 수 있도록 <strong>조율자의 역할</strong>을 수행합니다.</p>
+          <div class="principles" aria-label="기획 원칙">
+            <div class="principle"><b>01</b><span>유저 경험에서 출발합니다.</span></div>
+            <div class="principle"><b>02</b><span>시스템을 구조적으로 분석합니다.</span></div>
+            <div class="principle"><b>03</b><span>역할과 일정을 명확히 공유합니다.</span></div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section class="section" id="archive" aria-labelledby="archive-title">
+      <div class="section-head">
+        <p class="section-kicker">02 / ARCHIVE</p>
+        <h2 id="archive-title">플레이와 제작 경험을<br>각각 살펴볼 수 있습니다.</h2>
+      </div>
+      <div class="archive-grid">
+        <a class="archive-card" id="games" href="games.html">
+          <span class="archive-index">01 / PLAY LOG</span>
+          <div><h3>플레이 게임 이력</h3><p>장르, 플랫폼, 플레이 시간을 기준으로 지금까지의 게임 경험을 표로 확인합니다.</p></div>
+          <span class="archive-link">63개 게임 살펴보기</span>
+        </a>
+        <a class="archive-card" id="projects" href="projects.html">
+          <span class="archive-index">02 / PROJECTS</span>
+          <div><h3>프로젝트 경험</h3><p>게임 기획과 개발 과정에서 맡은 역할, 기여 내용, 결과를 프로젝트별로 확인합니다.</p></div>
+          <span class="archive-link">프로젝트 카드 열기</span>
+        </a>
+        <section class="home-projects" aria-labelledby="home-projects-title">
+          <div class="home-projects-head">
+            <p class="section-kicker">PROJECT SNAPSHOT</p>
+            <h3 id="home-projects-title">프로젝트별 경험을 간략히 소개합니다.</h3>
+          </div>
+          <div class="home-project-list" id="home-project-list"></div>
+        </section>
+      </div>
+    </section>
+
+    <div class="band">
+      <section class="section" id="capabilities" aria-labelledby="capabilities-title">
+        <div class="section-head">
+          <p class="section-kicker">03 / CAPABILITIES</p>
+          <h2 id="capabilities-title">기획을 문서로 정리하고<br>구현 가능성을 확인합니다.</h2>
+        </div>
+        <div class="capability-grid">
+          <article class="capability"><h3>문서 작성</h3><p>Word, PowerPoint, Excel을 활용해 기획 의도와 데이터를 구조적으로 정리합니다.</p></article>
+          <article class="capability"><h3>소프트웨어 이해</h3><p>소프트웨어융합학 전공을 바탕으로 프로그래밍과 소프트웨어 구조의 기초를 이해합니다.</p></article>
+          <article class="capability"><h3>AI 활용</h3><p>생성형 AI를 자료 정리와 검증, 프로그램 및 게임 제작에 활용해 기획을 빠르게 구체화합니다.</p></article>
+        </div>
+        <p class="tool-line">TOOLS — Jira · Confluence · Notion · Asana · Git · ChatGPT · Claude · Gemini · Excel · PowerPoint · Word · Unity · Figma</p>
+      </section>
+    </div>
+
+    <section class="section" aria-labelledby="story-title">
+      <div class="section-head">
+        <p class="section-kicker">04 / APPROACH</p>
+        <h2 id="story-title">지원 동기보다 먼저,<br>일하는 방식을 보여드립니다.</h2>
+      </div>
+      <div class="story-grid">
+        <article class="story-card"><h3>유저 경험</h3><p>시스템에 따라 달라지는 플레이 방식과 경험을 관찰하고, 유저의 입장에서 기획합니다.</p></article>
+        <article class="story-card"><h3>리스크 관리</h3><p>예상치 못한 상황에서는 우선순위를 다시 세우고, 역할과 일정을 명확히 공유합니다.</p></article>
+        <article class="story-card"><h3>빠른 구체화</h3><p>문서와 프로토타입, AI 도구를 활용해 아이디어의 구현 가능성을 빠르게 확인합니다.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="contact" id="contact">
+    <div class="contact-inner">
+      <div class="contact-row">
+        <div><p class="eyebrow">Contact</p><h2>함께 만들 시스템에 대해<br>이야기하고 싶습니다.</h2><p>시스템 기획자 포지션을 준비하고 있습니다.</p></div>
+        <a class="button" href="mailto:yess7079@gmail.com">yess7079@gmail.com <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="footer-meta"><span>임상진 · System Designer</span><span>신한대학교 소프트웨어융합학과 졸업 · 2026.02</span></div>
+    </div>
+  </footer>
+  <script src="project-data.js"></script>
+  <script src="home-projects.js"></script>
+  <script src="navigation.js"></script>
+</body>
+</html>

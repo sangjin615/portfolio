@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="임상진의 프로젝트 경험입니다. 프로젝트 카드를 선택해 역할과 기여 내용을 확인할 수 있습니다.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#3f9fd3">
+  <title>프로젝트 경험 | 임상진</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233f9fd3'/%3E%3Cpath d='M8 9h16v4H13v3h9v4h-9v3h11v4H8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">LSJ</span><span>임상진</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#profile">소개</a></li>
+        <li><a href="index.html#games">게임 이력</a></li>
+        <li><a href="index.html#projects">프로젝트 경험</a></li>
+        <li><a href="index.html#capabilities">역량</a></li>
+        <li><a href="index.html#contact">연락</a></li>
+      </ul>
+      <div class="quick-menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="quick-panel" aria-label="상세 페이지 메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+        <aside class="quick-panel" id="quick-panel" aria-label="상세 페이지 바로가기">
+          <p class="quick-panel-label">DETAIL ARCHIVE</p>
+          <a href="games.html"><b>게임 이력</b><span>63개 게임의 장르와 플레이 기록</span></a>
+          <a href="projects.html" aria-current="page"><b>프로젝트 경험</b><span>프로젝트별 역할과 기여 내용</span></a>
+          <div class="quick-projects"><p class="quick-panel-label">PROJECTS</p><div class="quick-project-list" data-quick-project-list></div></div>
+        </aside>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="page-hero" aria-labelledby="page-title">
+      <p class="eyebrow">Project Archive</p>
+      <h1 id="page-title">프로젝트 경험</h1>
+      <p class="lead">카드를 선택하면 프로젝트별 역할, 개요, 기여 내용을 상세 페이지에서 확인할 수 있습니다.</p>
+      <a class="back-link" href="index.html#projects">홈의 프로젝트 경험으로 돌아가기</a>
+    </section>
+    <section class="projects-grid" id="project-list" aria-label="프로젝트 목록"></section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span>임상진 · System Designer</span><span id="project-count">Project Archive</span></div></footer>
+  <script src="project-data.js"></script>
+  <script src="navigation.js"></script>
+  <script>
+    const list = document.querySelector('#project-list');
+    document.querySelector('#project-count').textContent = `Project Archive · ${(window.PROJECTS || []).length} projects`;
+    (window.PROJECTS || []).forEach(project => {
+      const card = document.createElement('a');
+      card.className = 'project-card';
+      card.href = `project.html?id=${encodeURIComponent(project.id)}`;
+      card.setAttribute('aria-label', `${project.title} 상세 보기`);
+
+      const cover = document.createElement('div');
+      cover.className = 'project-cover';
+      if (project.image) {
+        const image = document.createElement('img');
+        image.src = project.image;
+        if (project.imageFit) image.style.objectFit = project.imageFit;
+        image.alt = `${project.title} 대표 이미지`;
+        image.width = 720;
+        image.height = 405;
+        cover.append(image);
+      } else {
+        const wordmark = document.createElement('div');
+        wordmark.className = 'word-cover';
+        wordmark.textContent = project.wordmark;
+        cover.append(wordmark);
+      }
+      const index = document.createElement('span');
+      index.className = 'project-index';
+      index.textContent = project.number;
+      cover.append(index);
+
+      const content = document.createElement('div');
+      content.className = 'project-content';
+      const title = document.createElement('h2');
+      title.textContent = project.title;
+      const role = document.createElement('p');
+      role.className = 'project-role';
+      role.textContent = project.role;
+      const description = document.createElement('p');
+      description.className = 'project-description';
+      description.textContent = project.category;
+      const meta = document.createElement('div');
+      meta.className = 'project-meta';
+      meta.textContent = project.period;
+      const cta = document.createElement('span');
+      cta.className = 'project-cta';
+      cta.textContent = '상세 내용 보기';
+      content.append(title, role, description, meta, cta);
+      card.append(cover, content);
+      list.append(card);
+    });
+  </script>
+</body>
+</html>

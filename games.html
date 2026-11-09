@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="임상진의 플레이 게임 이력입니다. 장르, 플랫폼, 플레이 시간을 표로 확인할 수 있습니다.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#3f9fd3">
+  <title>플레이 게임 이력 | 임상진</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233f9fd3'/%3E%3Cpath d='M8 9h16v4H13v3h9v4h-9v3h11v4H8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">LSJ</span><span>임상진</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#profile">소개</a></li>
+        <li><a href="index.html#games">게임 이력</a></li>
+        <li><a href="index.html#projects">프로젝트 경험</a></li>
+        <li><a href="index.html#capabilities">역량</a></li>
+        <li><a href="index.html#contact">연락</a></li>
+      </ul>
+      <div class="quick-menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="quick-panel" aria-label="상세 페이지 메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+        <aside class="quick-panel" id="quick-panel" aria-label="상세 페이지 바로가기">
+          <p class="quick-panel-label">DETAIL ARCHIVE</p>
+          <a href="games.html" aria-current="page"><b>게임 이력</b><span>63개 게임의 장르와 플레이 기록</span></a>
+          <a href="projects.html"><b>프로젝트 경험</b><span>프로젝트별 역할과 기여 내용</span></a>
+          <div class="quick-projects"><p class="quick-panel-label">PROJECTS</p><div class="quick-project-list" data-quick-project-list></div></div>
+        </aside>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-shell page-hero" aria-labelledby="page-title">
+      <p class="eyebrow">Play Log</p>
+      <h1 id="page-title">플레이 게임 이력</h1>
+      <p class="lead">장르 그룹 안에서 플레이 시간이 긴 순서로 정리한 게임 경험입니다. 검색하거나 장르 그룹을 선택해 확인할 수 있습니다.</p>
+      <a class="back-link" href="index.html#games">홈의 게임 이력으로 돌아가기</a>
+    </section>
+
+    <section class="control-panel" aria-label="게임 이력 필터">
+      <div class="controls">
+        <label><span>게임 검색</span><input class="field" id="game-search" type="search" placeholder="게임명, 장르, 플랫폼 검색" autocomplete="off"></label>
+        <label><span>장르 그룹</span><select class="field" id="genre-filter"><option value="">전체 장르 그룹</option></select></label>
+        <div class="result-count" id="result-count" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="page-shell table-section" aria-label="게임 이력 표">
+      <div class="table-wrap" role="region" aria-label="게임 이력 목록" tabindex="0">
+        <table role="table" aria-label="게임별 장르, 플랫폼과 플레이 시간">
+          <thead><tr><th scope="col">순번</th><th scope="col">게임명</th><th scope="col">장르</th><th scope="col">플랫폼</th><th scope="col">장르 그룹</th><th scope="col">플레이 시간</th></tr></thead>
+          <tbody id="game-rows"></tbody>
+        </table>
+        <p class="empty-state" id="empty-state">조건에 맞는 게임이 없습니다.</p>
+      </div>
+      <p class="source-note">플레이 시간은 정확한 기록을 확인하기 어려운 경우 추정치를 사용했습니다. 원본: 게임 플레이 이력_장르별_플레이시간순.xlsx</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span>임상진 · System Designer</span><span>플레이 게임 이력 · 63 games</span></div></footer>
+  <script src="games-data.js"></script>
+  <script src="game-icons.js"></script>
+  <script src="project-data.js"></script>
+  <script src="navigation.js"></script>
+  <script>
+    const games = window.GAME_HISTORY || [];
+    const rows = document.querySelector('#game-rows');
+    const search = document.querySelector('#game-search');
+    const filter = document.querySelector('#genre-filter');
+    const count = document.querySelector('#result-count');
+    const empty = document.querySelector('#empty-state');
+    const gameIcons = window.GAME_ICONS || {};
+
+    [...new Set(games.map(game => game[5]))].forEach(group => {
+      const option = document.createElement('option');
+      option.value = group;
+      option.textContent = group;
+      filter.append(option);
+    });
+
+    function cell(text, className) {
+      const td = document.createElement('td');
+      td.textContent = text;
+      if (className) td.className = className;
+      return td;
+    }
+
+    function gameTitleCell(title) {
+      const td = document.createElement('td');
+      td.className = 'game-title';
+      const content = document.createElement('span');
+      content.className = 'game-title-content';
+      const iconName = gameIcons[title];
+      if (iconName) {
+        const icon = document.createElement('img');
+        icon.className = 'game-icon';
+        icon.src = `assets/game-icons/${iconName}`;
+        icon.alt = '';
+        icon.width = 44;
+        icon.height = 44;
+        icon.loading = 'lazy';
+        icon.decoding = 'async';
+        content.append(icon);
+      }
+      const label = document.createElement('span');
+      label.textContent = title;
+      content.append(label);
+      td.append(content);
+      return td;
+    }
+
+    function render() {
+      const keyword = search.value.trim().toLocaleLowerCase('ko-KR');
+      const group = filter.value;
+      const visible = games.filter(game => {
+        const target = `${game[1]} ${game[2]} ${game[3]} ${game[5]}`.toLocaleLowerCase('ko-KR');
+        return (!keyword || target.includes(keyword)) && (!group || game[5] === group);
+      });
+      rows.replaceChildren();
+      visible.forEach(game => {
+        const tr = document.createElement('tr');
+        tr.append(cell(game[0]));
+        tr.append(gameTitleCell(game[1]));
+        tr.append(cell(game[2]));
+        tr.append(cell(game[3]));
+        const groupCell = document.createElement('td');
+        const badge = document.createElement('span');
+        badge.className = 'genre-group';
+        badge.textContent = game[5];
+        groupCell.append(badge);
+        tr.append(groupCell);
+        tr.append(cell(`${game[4].toLocaleString('ko-KR')}시간`, 'hours'));
+        [...tr.cells].forEach((td, index) => { td.dataset.label = ['순번', '게임명', '장르', '플랫폼', '장르 그룹', '플레이 시간'][index]; });
+        rows.append(tr);
+      });
+      count.textContent = `총 ${games.length}개 중 ${visible.length}개 표시`;
+      empty.style.display = visible.length ? 'none' : 'block';
+    }
+
+    search.addEventListener('input', render);
+    filter.addEventListener('change', render);
+    render();
+  </script>
+</body>
+</html>

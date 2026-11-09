@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="임상진의 프로젝트 상세 경험입니다.">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#3f9fd3">
+  <title>프로젝트 상세 | 임상진</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%233f9fd3'/%3E%3Cpath d='M8 9h16v4H13v3h9v4h-9v3h11v4H8z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="archive.css">
+  <link rel="stylesheet" href="design.css">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 바로가기</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="주요 메뉴">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">LSJ</span><span>임상진</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html#profile">소개</a></li>
+        <li><a href="index.html#games">게임 이력</a></li>
+        <li><a href="index.html#projects">프로젝트 경험</a></li>
+        <li><a href="index.html#capabilities">역량</a></li>
+        <li><a href="index.html#contact">연락</a></li>
+      </ul>
+      <div class="quick-menu">
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="quick-panel" aria-label="상세 페이지 메뉴 열기">
+          <span></span><span></span><span></span>
+        </button>
+        <aside class="quick-panel" id="quick-panel" aria-label="상세 페이지 바로가기">
+          <p class="quick-panel-label">DETAIL ARCHIVE</p>
+          <a href="games.html"><b>게임 이력</b><span>63개 게임의 장르와 플레이 기록</span></a>
+          <a href="projects.html" aria-current="page"><b>프로젝트 경험</b><span>프로젝트별 역할과 기여 내용</span></a>
+          <div class="quick-projects"><p class="quick-panel-label">PROJECTS</p><div class="quick-project-list" data-quick-project-list></div></div>
+        </aside>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="detail-hero" id="detail-hero" hidden>
+      <div>
+        <p class="eyebrow" id="detail-number"></p>
+        <h1 class="detail-title" id="detail-title"></h1>
+        <p class="lead" id="detail-summary"></p>
+        <div class="project-actions" id="project-actions" hidden></div>
+        <ul class="project-facts" id="detail-facts" aria-label="프로젝트 특징" hidden></ul>
+        <div class="detail-meta">
+          <div class="meta-box"><b>기간</b><span id="detail-period"></span></div>
+          <div class="meta-box"><b>역할</b><span id="detail-role"></span></div>
+        </div>
+      </div>
+      <div class="detail-cover" id="detail-cover"></div>
+    </section>
+
+    <section class="detail-body" id="detail-body" hidden>
+      <div class="detail-grid"><h2>프로젝트 개요</h2><div><p id="detail-category"></p><div class="overview-gallery" id="overview-gallery" hidden></div></div></div>
+      <div class="detail-grid"><h2>개인 기여</h2><div><ul class="detail-list" id="detail-contributions"></ul></div></div>
+      <div id="detail-sections"></div>
+      <div class="detail-grid" id="detail-summary-section"><h2>요약</h2><div><p id="detail-summary-repeat"></p></div></div>
+      <div class="detail-nav"><a href="projects.html">프로젝트 목록</a><a id="next-project" href="projects.html">다음 프로젝트</a></div>
+    </section>
+
+    <section class="page-hero" id="not-found" hidden>
+      <p class="eyebrow">Project Archive</p>
+      <h1>프로젝트를 찾을 수 없습니다.</h1>
+      <p class="lead">주소를 다시 확인하거나 프로젝트 목록에서 카드를 선택해 주세요.</p>
+      <a class="back-link" href="projects.html">프로젝트 목록으로 이동</a>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><span>임상진 · System Designer</span><span>Project Detail</span></div></footer>
+  <script src="project-data.js"></script>
+  <script src="navigation.js"></script>
+  <script>
+    const projects = window.PROJECTS || [];
+    const id = new URLSearchParams(location.search).get('id');
+    const index = projects.findIndex(item => item.id === id);
+    const project = projects[index];
+
+    if (!project) {
+      document.querySelector('#not-found').hidden = false;
+    } else {
+      document.title = `${project.title} | 프로젝트 경험 | 임상진`;
+      document.querySelector('#detail-hero').hidden = false;
+      document.querySelector('#detail-body').hidden = false;
+      document.querySelector('#detail-number').textContent = `${project.number} / PROJECT`;
+      document.querySelector('#detail-title').textContent = project.title;
+      document.querySelector('#detail-summary').textContent = project.summary;
+      document.querySelector('#detail-summary-repeat').textContent = project.summary;
+      document.querySelector('#detail-period').textContent = project.period;
+      document.querySelector('#detail-role').textContent = project.role;
+      document.querySelector('#detail-category').textContent = project.category;
+      if (project.links?.length) {
+        const actions = document.querySelector('#project-actions');
+        actions.hidden = false;
+        project.links.forEach(item => {
+          const group = document.createElement('div');
+          const link = document.createElement('a');
+          link.className = 'project-action';
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.textContent = `${item.label} ↗`;
+          group.append(link);
+          if (item.description) {
+            const description = document.createElement('p');
+            description.textContent = item.description;
+            group.append(description);
+          }
+          actions.append(group);
+        });
+      }
+      if (project.gallery?.length) {
+        const gallery = document.querySelector('#overview-gallery');
+        if (project.galleryLayout === 'compact') gallery.classList.add('overview-gallery--compact');
+        gallery.hidden = false;
+        project.gallery.forEach(media => {
+          const figure = document.createElement('figure');
+          const link = document.createElement('a');
+          link.href = media.src;
+          link.target = '_blank';
+          link.rel = 'noopener';
+          link.setAttribute('aria-label', `${media.alt} 원본 보기 (새 탭)`);
+          const image = document.createElement('img');
+          image.src = media.src;
+          image.alt = media.alt;
+          image.loading = 'lazy';
+          image.decoding = 'async';
+          link.append(image);
+          const caption = document.createElement('figcaption');
+          caption.textContent = media.caption;
+          figure.append(link, caption);
+          gallery.append(figure);
+        });
+      }
+      if (project.facts?.length) {
+        const facts = document.querySelector('#detail-facts');
+        facts.hidden = false;
+        project.facts.forEach(value => {
+          const item = document.createElement('li');
+          item.textContent = value;
+          facts.append(item);
+        });
+      }
+      if (project.sections?.length) {
+        document.querySelector('#detail-summary-section').hidden = true;
+        const sections = document.querySelector('#detail-sections');
+        project.sections.forEach(section => {
+          const block = document.createElement('section');
+          block.className = 'detail-grid';
+          const title = document.createElement('h2');
+          title.textContent = section.title;
+          const content = document.createElement('div');
+          (section.paragraphs || []).forEach(value => {
+            const paragraph = document.createElement('p');
+            paragraph.textContent = value;
+            content.append(paragraph);
+          });
+          if (section.items?.length) {
+            const items = document.createElement('ul');
+            items.className = 'detail-list';
+            section.items.forEach(value => {
+              const item = document.createElement('li');
+              item.textContent = value;
+              items.append(item);
+            });
+            content.append(items);
+          }
+          if (section.gallery?.length) {
+            const gallery = document.createElement('div');
+            gallery.className = 'overview-gallery overview-gallery--compact';
+            section.gallery.forEach(media => {
+              const figure = document.createElement('figure');
+              const link = document.createElement('a');
+              link.href = media.src;
+              link.target = '_blank';
+              link.rel = 'noopener';
+              link.setAttribute('aria-label', `${media.alt} 원본 보기 (새 탭)`);
+              const image = document.createElement('img');
+              image.src = media.src;
+              image.alt = media.alt;
+              image.loading = 'lazy';
+              image.decoding = 'async';
+              const caption = document.createElement('figcaption');
+              caption.textContent = media.caption;
+              link.append(image);
+              figure.append(link, caption);
+              gallery.append(figure);
+            });
+            content.append(gallery);
+          }
+          if (section.note) {
+            const note = document.createElement('p');
+            note.className = 'project-note';
+            note.textContent = section.note;
+            content.append(note);
+          }
+          block.append(title, content);
+          sections.append(block);
+        });
+      }
+
+      const cover = document.querySelector('#detail-cover');
+      if (project.image) {
+        const image = document.createElement('img');
+        image.src = project.image;
+        if (project.imageFit) image.style.objectFit = project.imageFit;
+        image.alt = `${project.title} 대표 이미지`;
+        image.width = 720;
+        image.height = 405;
+        cover.append(image);
+      } else {
+        const wordmark = document.createElement('div');
+        wordmark.className = 'word-cover';
+        wordmark.textContent = project.wordmark;
+        cover.append(wordmark);
+      }
+
+      const list = document.querySelector('#detail-contributions');
+      project.contributions.forEach(text => {
+        const item = document.createElement('li');
+        item.textContent = text;
+        list.append(item);
+      });
+
+      const next = projects[(index + 1) % projects.length];
+      const nextLink = document.querySelector('#next-project');
+      nextLink.href = `project.html?id=${encodeURIComponent(next.id)}`;
+      nextLink.textContent = `다음: ${next.title}`;
+    }
+  </script>
+</body>
+</html>

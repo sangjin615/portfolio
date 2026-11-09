@@ -1,0 +1,368 @@
+[
+  {
+    "title": "쿠키런: 킹덤",
+    "file": "09-cookie-kingdom.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "League of Legends",
+    "file": "02-league.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "승리의 여신: 니케",
+    "file": "11-nikke.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Pokémon GO",
+    "file": "12-pokemon-go.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "쿠키런: 크럼블",
+    "file": "10-cookie-crumble.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "원신",
+    "file": "01-genshin.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "StarCraft II: Wings of Liberty",
+    "file": "05-starcraft2.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Hearthstone",
+    "file": "06-hearthstone.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Stardew Valley",
+    "file": "game-06.jpg",
+    "source": "https://store.steampowered.com/app/413150/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/413150/header.jpg"
+  },
+  {
+    "title": "LOST ARK",
+    "file": "game-07.jpg",
+    "source": "https://store.steampowered.com/app/1599340/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1599340/header.jpg"
+  },
+  {
+    "title": "World of Warcraft",
+    "file": "game-12.png",
+    "source": "https://en.wikipedia.org/wiki/World_of_Warcraft",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/6/65/World_of_Warcraft.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "Eternal Return",
+    "file": "game-19.jpg",
+    "source": "https://store.steampowered.com/app/1049590/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1049590/header.jpg"
+  },
+  {
+    "title": "Pokémon LEGENDS Z-A",
+    "file": "game-09.png",
+    "source": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Legends%3A_Z-A",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/2/2d/Pokemon_Legends_Z-A_Key_Art_Logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "TEKKEN 7",
+    "file": "game-17.jpg",
+    "source": "https://store.steampowered.com/app/389730/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/389730/header.jpg"
+  },
+  {
+    "title": "포켓몬스터 소드",
+    "file": "game-11.jpg",
+    "source": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Sword_and_Shield",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/en/thumb/f/fa/Pok%C3%A9mon_Sword_and_Shield.jpg/330px-Pok%C3%A9mon_Sword_and_Shield.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "몬길: STAR DIVE",
+    "file": "game-08.jpg",
+    "source": "https://channeln.gcdn.netmarble.com/channeln/Upload/326dc0db-ad14-4cc5-b8dd-e384b8cdf658.jpg",
+    "image_url": "https://channeln.gcdn.netmarble.com/channeln/Upload/326dc0db-ad14-4cc5-b8dd-e384b8cdf658.jpg"
+  },
+  {
+    "title": "포켓몬스터 샤이닝 펄",
+    "file": "game-10.png",
+    "source": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Brilliant_Diamond_and_Shining_Pearl",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/en/thumb/3/3e/Pokemon_Brilliant_Diamond_Shining_Pearl.png/330px-Pokemon_Brilliant_Diamond_Shining_Pearl.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "유희왕 듀얼 링크스",
+    "file": "game-24.jpg",
+    "source": "https://store.steampowered.com/app/601510/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/601510/header.jpg"
+  },
+  {
+    "title": "Overwatch",
+    "file": "03-overwatch.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Destiny 2",
+    "file": "04-destiny2.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Heroes of the Storm",
+    "file": "game-16.png",
+    "source": "https://en.wikipedia.org/wiki/Heroes_of_the_Storm",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/en/thumb/0/02/Heroes_of_the_Storm_BlizzHeroes_2017_logo.png/330px-Heroes_of_the_Storm_BlizzHeroes_2017_logo.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "Apex Legends",
+    "file": "game-30.jpg",
+    "source": "https://store.steampowered.com/app/1172470/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1172470/header.jpg"
+  },
+  {
+    "title": "PUBG: BATTLEGROUNDS",
+    "file": "game-31.jpg",
+    "source": "https://store.steampowered.com/app/578080/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/578080/header.jpg"
+  },
+  {
+    "title": "Metal: Hellsinger",
+    "file": "game-32.jpg",
+    "source": "https://store.steampowered.com/app/1061910/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1061910/header.jpg"
+  },
+  {
+    "title": "매직서바이벌",
+    "file": "07-magic-survival.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "대난투 스매시브라더스 X",
+    "file": "game-22.jpg",
+    "source": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Brawl",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/f/f3/SSBB_Cover.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "VALORANT",
+    "file": "game-29.png",
+    "source": "https://en.wikipedia.org/wiki/Valorant",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Valorant_logo_-_pink_color_version.svg/330px-Valorant_logo_-_pink_color_version.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "Vampire Survivors",
+    "file": "game-39.jpg",
+    "source": "https://store.steampowered.com/app/1794680/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1794680/header.jpg"
+  },
+  {
+    "title": "R.E.P.O.",
+    "file": "game-40.jpg",
+    "source": "https://store.steampowered.com/app/3241660/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/3241660/header.jpg"
+  },
+  {
+    "title": "Dead by Daylight",
+    "file": "game-41.jpg",
+    "source": "https://store.steampowered.com/app/381210/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/381210/header.jpg"
+  },
+  {
+    "title": "League of Legends: Wild Rift",
+    "file": "game-20.png",
+    "source": "https://en.wikipedia.org/wiki/League_of_Legends%3A_Wild_Rift",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/64/League_of_Legends_Wild_Rift_logo.svg/330px-League_of_Legends_Wild_Rift_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "슈퍼 스매시브라더스 얼티밋",
+    "file": "game-23.jpg",
+    "source": "https://en.wikipedia.org/wiki/Super_Smash_Bros._Ultimate",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/5/50/Super_Smash_Bros._Ultimate.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "Skul: The Hero Slayer",
+    "file": "game-36.jpg",
+    "source": "https://store.steampowered.com/app/1147560/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1147560/header.jpg"
+  },
+  {
+    "title": "Escape the Backrooms",
+    "file": "game-43.jpg",
+    "source": "https://store.steampowered.com/app/1943950/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1943950/header.jpg"
+  },
+  {
+    "title": "Don't Starve Together",
+    "file": "game-44.jpg",
+    "source": "https://store.steampowered.com/app/322330/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/322330/header.jpg"
+  },
+  {
+    "title": "Soulstone Survivors",
+    "file": "game-37.jpg",
+    "source": "https://store.steampowered.com/app/2066020/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/2066020/header.jpg"
+  },
+  {
+    "title": "Pokémon Champions",
+    "file": "game-25.jpg",
+    "source": "https://en.wikipedia.org/wiki/Pok%C3%A9mon_Champions",
+    "image_url": "https://thumb.wikimedia.org/wikipedia/en/thumb/4/4c/Pok%C3%A9mon_Champions_key_art_logo.jpg/330px-Pok%C3%A9mon_Champions_key_art_logo.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail"
+  },
+  {
+    "title": "Brotato",
+    "file": "game-42.jpg",
+    "source": "https://store.steampowered.com/app/1942280/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/1942280/header.jpg"
+  },
+  {
+    "title": "CloverPit",
+    "file": "game-38.jpg",
+    "source": "https://store.steampowered.com/app/3314790/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/3314790/header.jpg"
+  },
+  {
+    "title": "Shadow of the Tomb Raider",
+    "file": "game-50.jpg",
+    "source": "https://store.steampowered.com/app/750920/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/750920/header.jpg"
+  },
+  {
+    "title": "Tomb Raider",
+    "file": "game-53.jpg",
+    "source": "https://store.steampowered.com/app/203160/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/203160/header.jpg"
+  },
+  {
+    "title": "Human: Fall Flat",
+    "file": "game-54.jpg",
+    "source": "https://store.steampowered.com/app/477160/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/477160/header.jpg"
+  },
+  {
+    "title": "우파루 오딧세이",
+    "file": "08-wooparoo.png",
+    "source": "existing local asset"
+  },
+  {
+    "title": "Rise of the Tomb Raider",
+    "file": "game-52.jpg",
+    "source": "https://store.steampowered.com/app/391220/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/391220/header.jpg"
+  },
+  {
+    "title": "Among Us",
+    "file": "game-57.jpg",
+    "source": "https://store.steampowered.com/app/945360/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/945360/header.jpg"
+  },
+  {
+    "title": "A Dance of Fire and Ice",
+    "file": "game-58.jpg",
+    "source": "https://store.steampowered.com/app/977950/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/977950/header.jpg"
+  },
+  {
+    "title": "Teamfight Tactics",
+    "file": "game-18.webp",
+    "source": "https://teamfighttactics.leagueoflegends.com/en-us/",
+    "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/d63adacd93e313c1e61bbeb2eb37d8c4ca85848d-1920x1080.jpg?accountingTag=TFT?w=1200&h=630&fm=webp&fit=crop&crop=center"
+  },
+  {
+    "title": "2XKO",
+    "file": "game-26.webp",
+    "source": "https://2xko.riotgames.com/en-us/",
+    "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/news_live/0d8da14d9cc0c69376e8fb42cc6344276bf937ad-1200x600.jpg?accountingTag=2XKO?w=1200&h=630&fm=webp&fit=crop&crop=center"
+  },
+  {
+    "title": "Minecraft",
+    "file": "game-34.jpg",
+    "source": "https://www.minecraft.net/en-us",
+    "image_url": "https://www.minecraft.net/content/dam/minecraftnet/franchise/logos/minecraft-creeper-face.jpg"
+  },
+  {
+    "title": "젤다의 전설 스카이워드 소드",
+    "file": "game-45.png",
+    "source": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda%3A_Skyward_Sword",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/9/99/Legend_of_Zelda_Skyward_Sword_boxart.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "MECCHA CHAMELEON",
+    "file": "game-56.jpg",
+    "source": "https://store.steampowered.com/app/4704690/",
+    "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/4704690/18d14b8bd834e30a6a25df5ccd7f0a6e644f1577/capsule_231x87.jpg?t=1789464996"
+  },
+  {
+    "title": "역전재판",
+    "file": "game-46.png",
+    "source": "https://en.wikipedia.org/wiki/Phoenix_Wright%3A_Ace_Attorney",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/73/Phoenix_Wright_-_Ace_Attorney_Coverart.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "뉴 슈퍼 마리오 브라더스 Wii",
+    "file": "game-47.png",
+    "source": "https://en.wikipedia.org/wiki/New_Super_Mario_Bros._Wii",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/8/8f/NewSuperMarioBrosWiiBoxart.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "별의 커비 Wii",
+    "file": "game-48.jpg",
+    "source": "https://en.wikipedia.org/wiki/Kirby%27s_Return_to_Dream_Land",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d4/Kirbys_return_to_dreamland_boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "털실 커비 이야기",
+    "file": "game-51.png",
+    "source": "https://en.wikipedia.org/wiki/Kirby%27s_Epic_Yarn",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/e/e3/Kirby%27s_Epic_Yarn_Title.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "Dead as Disco",
+    "file": "game-60.jpg",
+    "source": "https://store.steampowered.com/app/3404260/",
+    "image_url": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3404260/e4d4a7954fe4eac7ada3c1ca8d7f32867ee3c7c5/capsule_231x87_alt_assets_0.jpg?t=1790698491"
+  },
+  {
+    "title": "리듬 세상 Wii",
+    "file": "game-59.jpg",
+    "source": "https://en.wikipedia.org/wiki/Rhythm_Heaven_Fever",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/bb/Rhythm-heaven-fever.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "마리오 카트 8",
+    "file": "game-62.jpg",
+    "source": "https://en.wikipedia.org/wiki/Mario_Kart_8",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/b/b5/MarioKart8Boxart.jpg?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "마리오 카트 Wii",
+    "file": "game-63.png",
+    "source": "https://en.wikipedia.org/wiki/Mario_Kart_Wii",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d6/Mario_Kart_Wii.png?utm_source=en.wikipedia.org&utm_campaign=index&utm_content=thumbnail_unscaled"
+  },
+  {
+    "title": "Bloons Tower Defense",
+    "file": "game-21.jpg",
+    "source": "https://en.wikipedia.org/wiki/Bloons_Tower_Defense",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/d/d8/Bloons_TD_Logo.jpg"
+  },
+  {
+    "title": "The Binding of Isaac",
+    "file": "game-35.jpg",
+    "source": "https://store.steampowered.com/app/113200/",
+    "image_url": "https://cdn.akamai.steamstatic.com/steam/apps/113200/header.jpg"
+  },
+  {
+    "title": "슈퍼 마리오 Wii 갤럭시 어드벤처",
+    "file": "game-49.jpg",
+    "source": "https://en.wikipedia.org/wiki/Super_Mario_Galaxy",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/7/76/SuperMarioGalaxy.jpg"
+  },
+  {
+    "title": "리듬천국 미라클 스타즈",
+    "file": "game-61.png",
+    "source": "https://www.nintendo.com/sg/news/article/w4yS0TVaTn1ovov6ZKl4G",
+    "image_url": "https://images.ctfassets.net/pkeegl0voupm/7BEbYO8VWNckSxiehJ0sMh/86f2472793d41b940424d92d07fee81e/RhythmHeavenGroove_bnr.png"
+  }
+]
